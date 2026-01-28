@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Page</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(to bottom, #020617, #0f172a, #020617);
+            color: white;
+            font-family: system-ui, -apple-system, sans-serif;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #60a5fa, #22d3ee);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .card {
+            background: rgba(30, 41, 59, 0.5);
+            border: 1px solid rgba(51, 65, 85, 1);
+            border-radius: 8px;
+            padding: 24px;
+            margin-top: 20px;
+        }
+        .button {
+            background: #2563eb;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+        }
+        .button:hover {
+            background: #1d4ed8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Enhanced Schema Plugin</h1>
+        <h2 class="gradient-text">Advanced Schema Markup For Your Agency</h2>
+
+        <div class="card">
+            <h3>✅ Test Page Loaded Successfully</h3>
+            <p>If you can see this, basic HTML/CSS is working.</p>
+            <p>The issue might be with the React application or JavaScript loading.</p>
+        </div>
+
+        <div class="card">
+            <h3>📋 Debug Information</h3>
+            <p><strong>Location:</strong> <span id="location"></span></p>
+            <p><strong>Assets folder exists:</strong> <span id="assets"></span></p>
+        </div>
+
+        <a href="./index.html" class="button">Try Loading Main App</a>
+        <a href="./enhanced-schema-plugin.zip" class="button" download>Download Plugin</a>
+    </div>
+
+    <script>
+        document.getElementById('location').textContent = window.location.href;
+
+        // Check if assets folder is accessible
+        fetch('./assets/index-CSfUXibt.js')
+            .then(response => {
+                document.getElementById('assets').textContent = response.ok ? '✅ Yes' : '❌ No (404)';
+            })
+            .catch(error => {
+                document.getElementById('assets').textContent = '❌ Error: ' + error.message;
+            });
+    </script>
+</body>
+</html>
